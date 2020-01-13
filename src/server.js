@@ -1,4 +1,6 @@
 const express = require('express')
+const routes = require('./routes')
+
 const app = express();
 
 // Req.query = Acessar query params (para filtros)
@@ -6,9 +8,6 @@ const app = express();
 // Req.body = Acessar corpo da request (criação, edição)
 
 app.use(express.json());
-
-app.post('/users/:id', (request, response) => {
-    return response.json(request.body);
-});
+app.use(routes);
 
 app.listen(3333);   
